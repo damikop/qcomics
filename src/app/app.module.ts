@@ -2,13 +2,28 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { StudioComicsComponent } from './studio-comics/studio-comics.component';
+import { AuthorComicsComponent } from './author-comics/author-comics.component';
+import { PublishingComponent } from './publishing/publishing.component';
+import {RouterModule} from "@angular/router";
+import {routes} from "./routes";
+import { SearchResultComponent } from './search-result/search-result.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    StudioComicsComponent,
+    AuthorComicsComponent,
+    PublishingComponent,
+    SearchResultComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
