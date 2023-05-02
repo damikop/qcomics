@@ -10,6 +10,9 @@ import {RouterModule} from "@angular/router";
 import {routes} from "./routes";
 import { SearchResultComponent } from './search-result/search-result.component';
 import { LoginComponent } from './login/login.component';
+import {FormsModule} from "@angular/forms";
+import { RegistrationComponent } from './registration/registration.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,11 +22,14 @@ import { LoginComponent } from './login/login.component';
     AuthorComicsComponent,
     PublishingComponent,
     SearchResultComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    FormsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

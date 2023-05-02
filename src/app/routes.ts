@@ -5,6 +5,7 @@ import {AuthorComicsComponent} from "./author-comics/author-comics.component";
 import {PublishingComponent} from "./publishing/publishing.component";
 import {LoginComponent} from "./login/login.component";
 import {SearchResultComponent} from "./search-result/search-result.component";
+import {RegistrationComponent} from "./registration/registration.component";
 
 export const routes: Routes = [
   {
@@ -35,5 +36,9 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'registration',
+    component: RegistrationComponent
   }
   ];

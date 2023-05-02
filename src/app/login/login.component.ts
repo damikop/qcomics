@@ -1,20 +1,33 @@
-import { Component } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {UserInfoLogin} from "./user-info-login";
+import {NgForm} from "@angular/forms";
+import {AuthService} from "../services/authservice";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  // username: string;
-  // password: string;
+export class LoginComponent implements OnInit{
 
-  constructor(private router: Router) { }
+  payload = {
+    username: '',
+    password: ''
+  };
 
-  onSubmit() {
-    // TODO: Implement login logic
-    // For now, just navigate to the home page
-    this.router.navigate(['/home']);
+  constructor(private authService: AuthService,
+              private router: Router){}
+  ngOnInit(): void {
   }
+
+  submit(){
+    this.authService.login(this.payload).subscribe({
+      next: value => {
+        this.authService.setToken(value.token);
+        this.router.navigate(['/home/'])
+      }
+    })
+  }
+
 }
