@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "./services/authservice";
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,5 @@ import {Router} from "@angular/router";
 export class AppComponent {
   title = 'qcomics';
 
-  // showHeader = true;
-  //
-  // constructor(private router: Router) {}
-  //
-  // onRegisterClicked() {
-  //   // скрыть хедер
-  //   this.showHeader = false;
-  //   // перейти на страницу регистрации
-  //   this.router.navigate(['/registration']);
-  //   // this.isRegistrationPage = true;
-  // }
+
 }

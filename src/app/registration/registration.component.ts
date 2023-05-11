@@ -21,6 +21,15 @@ export class RegistrationComponent{
   constructor(private router: Router,
               private authService: AuthService) { }
 
+  submit(){
+    this.authService.register(this.userInfoRegister).subscribe({
+      next: value => {
+        this.authService.setToken(value.token);
+        this.router.navigate(['/home/'])
+      }
+    })
+  }
+
   // onSubmit(form: NgForm) {
   //   console.log(form.value)
   //   // this.router.navigate(['/home']);

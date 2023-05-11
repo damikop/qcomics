@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center justify-center h-screen w-96 mx-auto">
   <h2 class="text-2xl font-bold mb-8">Авторизация</h2>
 
-  <form [ngFormOptions]="{updateOn: 'blur'}" (ngSubmit)="submit()" #form=ngForm class="bg-white rounded-lg shadow-lg py-12 px-16 w-full">
+  <form [ngFormOptions]="{updateOn: 'blur'}" (ngSubmit)="submit(form)" #form=ngForm class="bg-white rounded-lg shadow-lg py-12 px-16 w-full">
     <div class="mb-4">
       <label class="block text-gray-700 font-bold mb-2" for="username">Имя пользователя</label>
       <input
@@ -33,12 +33,34 @@
     <div class="flex items-center flex-col justify-between">
       <button [disabled]="form.invalid" type="submit" class="text-white font-bold my-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Войти</button>
       <div class="text-sm">
-        <a routerLink="/forgot-password" class="text-blue-500 hover:text-blue-700">Забыли пароль?</a>
+        <a (click)="openForgotPasswordModal()" class="text-blue-500 hover:text-blue-700">Забыли пароль?</a>
       </div>
     </div>
+    <div *ngIf="errorMessage" class="error-message text-red-500">{{errorMessage}}</div>
   </form>
   <div class="mt-4 text-sm">Нет аккаунта?
     <a routerLink="/registration" class="text-blue-500 hover:text-blue-700">Зарегистрируйтесь</a>
   </div>
-  <pre><code>{{payload | json}}</code></pre>
+<!--  <pre><code>{{payload | json}}</code></pre>-->
 </div>
+
+
+<!--<div id="forgotPasswordModal" class="modal">-->
+<!--  <div class="modal-content">-->
+<!--    <h2 class="text-xl font-bold mb-4">Восстановление пароля</h2>-->
+<!--    <form>-->
+<!--      <div class="mb-4">-->
+<!--        <label class="block text-gray-700 font-bold mb-2" for="email">Электронная почта</label>-->
+<!--        <input type="email" id="email" name="email" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">-->
+<!--      </div>-->
+<!--      <div class="mb-4">-->
+<!--        <label class="block text-gray-700 font-bold mb-2" for="newPassword">Новый пароль</label>-->
+<!--        <input type="password" id="newPassword" name="newPassword" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">-->
+<!--      </div>-->
+<!--      <div class="flex items-center justify-between">-->
+<!--        <button type="button" class="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Отмена</button>-->
+<!--        <button type="button" class="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Восстановить</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</div>-->

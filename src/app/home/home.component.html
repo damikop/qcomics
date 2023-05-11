@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div>
+  <!-- List of comics with covers, names, and genres -->
+  <div *ngFor="let comic of comics" class="comic-card">
+    <img [src]="comic.imageCoverBase64" alt="Comic Cover" class="cover-image">
+    <h3>{{ comic.name }}</h3>
+    <p>{{ comic.genres.join(', ') }}</p>
+  </div>
+
+  <!-- List of comics with descriptions, ratings, and types -->
+  <div *ngFor="let comic of comics" class="comic-card">
+    <h3>{{ comic.name }}</h3>
+    <img [src]="comic.imageCoverBase64" alt="Comic Cover" class="cover-image">
+    <p>{{ comic.genres.join(', ') }}</p>
+    <p>Description: {{ comic.description }}</p>
+    <p>Rating: {{ comic.rating }}</p>
+    <p>Type: {{ comic.type }}</p>
+  </div>
+</div>

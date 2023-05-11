@@ -14,6 +14,10 @@ import {FormsModule} from "@angular/forms";
 import { RegistrationComponent } from './registration/registration.component';
 import {HttpClientModule} from "@angular/common/http";
 
+import { HeaderLoggedComponent } from './header-logged/header-logged.component';
+import { HeaderNotLoggedComponent } from './header-not-logged/header-not-logged.component';
+import { UniqueUsernameDirective } from './registration/unique-username.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,10 @@ import {HttpClientModule} from "@angular/common/http";
     PublishingComponent,
     SearchResultComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HeaderLoggedComponent,
+    HeaderNotLoggedComponent,
+    UniqueUsernameDirective
   ],
   imports: [
     BrowserModule,

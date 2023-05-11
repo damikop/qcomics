@@ -1,17 +1,11 @@
-<nav>
-  <ul>
-    <li><a routerLink="/home">
-      <img src="assets/images/logo.png" alt="Logo">
-    </a></li>
-    <li><a class="text-3xl" routerLink="/studio-comics">Студийные комиксы</a></li>
-    <li><a routerLink="/author-comics">Авторские комиксы</a></li>
-    <li><a routerLink="/publishing"><img src="assets/images/Create.png" alt="publish"></a></li>
-    <li>
-      <input type="text" class="search-input w-72 h-12 rounded-full border border-gray-500" placeholder="Поиск">
-    </li>
-    <li><a routerLink="/login">Войти</a></li>
-    <li><a routerLink="/registration">Регистрация</a></li>
-  </ul>
-</nav>
+<!--<ng-container *ngIf="isLoggedIn(); else LoggedHeader">-->
+<!--  <app-header-not-logged></app-header-not-logged>-->
+<!--</ng-container>-->
+
+<!--<ng-template #LoggedHeader>-->
+<!--  <app-header-logged></app-header-logged>-->
+<!--</ng-template>-->
+
+<app-header-not-logged></app-header-not-logged>
 
 <router-outlet></router-outlet>
