@@ -13,8 +13,8 @@
       <div class="right">
         <a routerLink="/publishing"><img src="assets/images/Create.png" alt="publish"></a>
         <input type="text" class="search-input w-72 h-12 rounded-full border border-gray-500" placeholder="Поиск">
-        <a id="login" routerLink="/login">Войти</a>
-        <a routerLink="/registration">Регистрация</a>
+        <a *ngIf="!isAuthenticated" id="login" routerLink="/login">Войти</a>
+        <a *ngIf="!isAuthenticated" routerLink="/registration">Регистрация</a>
       </div>
     </li>
   </ul>

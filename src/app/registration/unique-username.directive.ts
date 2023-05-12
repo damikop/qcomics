@@ -15,9 +15,8 @@ import {environment} from "../../environments/environment";
   ]
 })
 export class UniqueUsernameDirective {
-  private httpClient = inject(HttpClient);
   private apiUrl = environment.apiUrl;
-
+  constructor(private httpClient: HttpClient) {}
 
   validate(control: AbstractControl): ValidationErrors | null {
     return this.httpClient.get<any[]>(`${this.apiUrl}api/v1/user?username=${control.value}`).pipe(

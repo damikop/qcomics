@@ -12,11 +12,15 @@ export class HomeComponent implements OnInit{
 
   constructor(private mainService: MainService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.mainService.getComics().subscribe(comics => {
-        // this.comics = comics;
-        console.log(comics)
-      }
-    );
+      this.comics = comics;
+      console.log(comics);
+    });
+  }
+
+  getComicImageURL(imageCoverBase64: string): string {
+    // Преобразование base64-кода в URL изображения
+    return 'data:image/jpeg;base64,' + imageCoverBase64;
   }
 }

@@ -6,6 +6,7 @@ import {PublishingComponent} from "./publishing/publishing.component";
 import {LoginComponent} from "./login/login.component";
 import {SearchResultComponent} from "./search-result/search-result.component";
 import {RegistrationComponent} from "./registration/registration.component";
+import {VerificationComponent} from "./verification/verification.component";
 
 export const routes: Routes = [
   {
@@ -40,5 +41,9 @@ export const routes: Routes = [
   {
     path: 'registration',
     component: RegistrationComponent
+  },
+  {
+    path: 'verification',
+    component: VerificationComponent
   }
   ];

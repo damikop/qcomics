@@ -14,9 +14,9 @@ import {FormsModule} from "@angular/forms";
 import { RegistrationComponent } from './registration/registration.component';
 import {HttpClientModule} from "@angular/common/http";
 
-import { HeaderLoggedComponent } from './header-logged/header-logged.component';
 import { HeaderNotLoggedComponent } from './header-not-logged/header-not-logged.component';
 import { UniqueUsernameDirective } from './registration/unique-username.directive';
+import { VerificationComponent } from './verification/verification.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +28,9 @@ import { UniqueUsernameDirective } from './registration/unique-username.directiv
     SearchResultComponent,
     LoginComponent,
     RegistrationComponent,
-    HeaderLoggedComponent,
     HeaderNotLoggedComponent,
-    UniqueUsernameDirective
+    UniqueUsernameDirective,
+    VerificationComponent
   ],
   imports: [
     BrowserModule,

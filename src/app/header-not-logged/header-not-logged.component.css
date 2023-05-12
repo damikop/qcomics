@@ -2,11 +2,13 @@
   --main-color: #DE6262;
 }
 nav{
+  position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 100;
   background: #FFFFFF;
   /* gray pre-med */
   border-bottom: 1px solid #848382;
-  position: fixed;
 }
 .comics-menu {
   display: flex;

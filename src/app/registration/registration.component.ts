@@ -22,36 +22,21 @@ export class RegistrationComponent{
               private authService: AuthService) { }
 
   submit(){
-    this.authService.register(this.userInfoRegister).subscribe({
-      next: value => {
+    // this.authService.register(this.userInfoRegister).subscribe({
+    //   next: value => {
+    //     this.authService.setToken(value.token);
+    //     this.router.navigate(['/verification'])
+    //   }
+    // })
+    this.authService.register(this.userInfoRegister).subscribe(
+      (value) => {
         this.authService.setToken(value.token);
-        this.router.navigate(['/home/'])
+        this.router.navigate(['/verification']);
+      },
+      (error) => {
+        console.error('Registration Error:', error);
+        // Дополнительная логика обработки ошибки
       }
-    })
+    );
   }
-
-  // onSubmit(form: NgForm) {
-  //   console.log(form.value)
-  //   // this.router.navigate(['/home']);
-  // }
-
-  // onSubmit(form: NgForm) {
-  //   if (form.valid) {
-  //     this.authService.registerUser(this.userInfoRegister)
-  //       .subscribe(
-  //         response => {
-  //           console.log(response); // обработка успешного ответа от сервера
-  //         },
-  //         error => {
-  //           console.error(error); // обработка ошибки
-  //         }
-  //       );
-  //   }
-  // }
-
-  // register(){
-  //   this.authService.registerUser(this.userInfoRegister.username, this.userInfoRegister.email, this.userInfoRegister.password).subscribe((result)=>{
-  //     console.log(result);
-  //   })
-  // }
 }

@@ -1,0 +1,91 @@
+.home{
+  padding-top: 100px;
+}
+
+.comics-list-banner {
+  display: flex;
+
+}
+
+.comic-card-banner {
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
+  /* Остальные стили для .comic-card-banner */
+}
+
+.comic-details-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Остальные стили для .comic-details-banner */
+}
+
+.cover-image {
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+  /* Остальные стили для .cover-image */
+}
+
+.comic-info-banner {
+  text-align: center;
+  /* Остальные стили для .comic-info-banner */
+}
+
+.genre {
+  margin-bottom: 5px;
+  /* Остальные стили для .genre */
+}
+
+.title {
+  font-size: 18px;
+  /* Остальные стили для .title */
+}
+
+
+.comic-card {
+  position: relative;
+  display: inline-block;
+  width: 492px;
+  height: 272px;
+  background: #FFFFFF;
+  border: 0.5px solid #848382;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  flex-basis: calc(50% - 20px); /* Чтобы отображать по две карточки в ряду, ширина должна быть 50% минус отступы */
+  margin: 10px;
+}
+
+
+
+/*.comic-card-line {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  margin: 10px;*/
+/*  !* Остальные стили для .comic-card-line *!*/
+/*}*/
+
+
+.comic-details {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.cover-image {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.comic-info {
+  flex: 1;
+}
+
+/* Дополнительные стили с использованием Tailwind CSS */
+.comics-list-main {
+  display: flex;
+  flex-wrap: wrap;
+}
+

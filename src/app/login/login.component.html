@@ -33,7 +33,7 @@
     <div class="flex items-center flex-col justify-between">
       <button [disabled]="form.invalid" type="submit" class="text-white font-bold my-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Войти</button>
       <div class="text-sm">
-        <a (click)="openForgotPasswordModal()" class="text-blue-500 hover:text-blue-700">Забыли пароль?</a>
+        <a class="text-blue-500 hover:text-blue-700">Забыли пароль?</a>
       </div>
     </div>
     <div *ngIf="errorMessage" class="error-message text-red-500">{{errorMessage}}</div>

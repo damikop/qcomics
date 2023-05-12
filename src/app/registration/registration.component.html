@@ -1,6 +1,4 @@
 
-
-
 <div class="flex flex-col items-center justify-center h-screen w-96 mx-auto">
   <h2 class="text-2xl font-bold mb-8">Регистрация</h2>
 
@@ -8,7 +6,7 @@
     <div class="mb-4">
       <label class="block text-gray-700 font-bold mb-2" for="username">Имя пользователя</label>
       <input
-        appUniqueUsername
+
         [ngModelOptions]="{updateOn: 'change'}"
         required
         type="text"
@@ -24,7 +22,6 @@
     <div class="mb-4">
       <label class="block text-gray-700 font-bold mb-2" for="email">Электронная почта</label>
       <input
-        email
         required
         type="email"
         class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -46,6 +43,7 @@
         id="password"
         name="password"
         placeholder="Пароль"
+        minlength="8"
         [(ngModel)]="userInfoRegister.password"
         #password="ngModel"
       >
@@ -60,6 +58,7 @@
         id="password-confirm"
         name="password-confirm"
         placeholder="Повторите пароль"
+        minlength="8"
         [(ngModel)]="userInfoRegister.passwordConfirm"
         #passwordConfirm="ngModel"
       >
@@ -75,4 +74,3 @@
   </div>
 <!--  <pre><code>{{userInfoRegister | json}}</code></pre>-->
 </div>
-

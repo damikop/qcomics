@@ -1,18 +1,31 @@
-<div>
-  <!-- List of comics with covers, names, and genres -->
-  <div *ngFor="let comic of comics" class="comic-card">
-    <img [src]="comic.imageCoverBase64" alt="Comic Cover" class="cover-image">
-    <h3>{{ comic.name }}</h3>
-    <p>{{ comic.genres.join(', ') }}</p>
+<div class="home">
+  <div class="comics-list-banner">
+    <!-- List of comics with covers, names, and genres -->
+    <div *ngFor="let comic of comics" class="comic-card-banner">
+      <div class="comic-details-banner">
+        <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
+        <div class="comic-info-banner">
+          <p class="genre">{{ comic.genres.join(', ') }}</p>
+          <h3 class="title">{{ comic.name }}</h3>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- List of comics with descriptions, ratings, and types -->
-  <div *ngFor="let comic of comics" class="comic-card">
-    <h3>{{ comic.name }}</h3>
-    <img [src]="comic.imageCoverBase64" alt="Comic Cover" class="cover-image">
-    <p>{{ comic.genres.join(', ') }}</p>
-    <p>Description: {{ comic.description }}</p>
-    <p>Rating: {{ comic.rating }}</p>
-    <p>Type: {{ comic.type }}</p>
+  <div class="comics-list-main">
+    <!-- List of comics with descriptions, ratings, and types -->
+    <div *ngFor="let comic of comics" class="comic-card">
+      <div class="comic-details">
+        <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
+        <div class="comic-info">
+          <h3>{{ comic.name }}</h3>
+          <p>{{ comic.genres.join(', ') }}</p>
+          <p>Description: {{ comic.description }}</p>
+          <p>Rating: {{ comic.rating }}</p>
+          <p>Type: {{ comic.type }}</p>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
