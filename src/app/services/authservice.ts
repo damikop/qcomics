@@ -28,18 +28,15 @@ export class AuthService {
   }
 
   login(payload: {username: string, password: string}){
-    return this.httpClient.post<{token: string}>(`${this.apiUrl}api/v1/auth/authenticate`, payload).pipe(
-      catchError(this.handleError));
+    return this.httpClient.post<{token: string}>(`${this.apiUrl}api/v1/auth/authenticate`, payload)
   }
 
   register(payload: {username: string, password: string, email: string}){
-    return this.httpClient.post<{token: string}>(`${this.apiUrl}api/v1/auth/register`, payload).pipe(
-      catchError(this.handleError));
+    return this.httpClient.post<{token: string}>(`${this.apiUrl}api/v1/auth/register`, payload)
   }
 
   validate(data: ValidationData): Observable<any> {
-    return this.httpClient.post<any>(`${this.apiUrl}api/v1/auth/validate`, data).pipe(
-      catchError(this.handleError));
+    return this.httpClient.post<any>(`${this.apiUrl}api/v1/auth/validate`, data)
   }
 
   resendVerificationCode(): Observable<any> {
@@ -52,24 +49,23 @@ export class AuthService {
   }
 
 
-
-  private handleError(error: HttpErrorResponse) {
-    let errorMessage = 'An error occurred';
-
-    if (error.error instanceof ErrorEvent) {
-      // Клиентская ошибка
-      errorMessage = error.error.message;
-    } else {
-      // Ошибка на стороне сервера
-      errorMessage = error.error.message || errorMessage;
-    }
-
-    // Здесь вы можете выполнить необходимую обработку ошибки,
-    // например, отображение сообщения об ошибке или запись в журнал ошибок
-
-    console.error('HTTP Error:', error.status);
-    console.error('Error Message:', errorMessage);
-
-    return throwError(errorMessage);
-  }
+  // private handleError(error: HttpErrorResponse) {
+  //   let errorMessage = 'An error occurred';
+  //
+  //   if (error.error instanceof ErrorEvent) {
+  //     // Клиентская ошибка
+  //     errorMessage = error.error.message;
+  //   } else {
+  //     // Ошибка на стороне сервера
+  //     errorMessage = error.error.message || errorMessage;
+  //   }
+  //
+  //   // Здесь вы можете выполнить необходимую обработку ошибки,
+  //   // например, отображение сообщения об ошибке или запись в журнал ошибок
+  //
+  //   console.error('HTTP Error:', error.status);
+  //   console.error('Error Message:', errorMessage);
+  //
+  //   return throwError(errorMessage);
+  // }
 }

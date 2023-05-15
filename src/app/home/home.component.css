@@ -4,46 +4,56 @@
 
 .comics-list-banner {
   display: flex;
-
+  justify-content: space-between;
 }
 
 .comic-card-banner {
-  flex-basis: calc(50% - 20px);
   margin: 10px;
-  /* Остальные стили для .comic-card-banner */
+  width: 184px;
 }
 
 .comic-details-banner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* Остальные стили для .comic-details-banner */
+  justify-content: space-between;
 }
 
 .cover-image {
-  width: 150px;
-  height: 225px;
+  width: 184px;
+  height: 276px;
   object-fit: cover;
-  /* Остальные стили для .cover-image */
+  border-radius: 10px;
 }
 
 .comic-info-banner {
-  text-align: center;
   /* Остальные стили для .comic-info-banner */
 }
 
-.genre {
-  margin-bottom: 5px;
+.comic-banner-genre {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #848382;
+  position: relative;
+  padding-right: 8px;
   /* Остальные стили для .genre */
 }
 
-.title {
-  font-size: 18px;
+
+.comic-banner-title {
+  font-weight: 600;
+  font-size: 16px;
   /* Остальные стили для .title */
 }
 
 
-.comic-card {
+
+.comics-list-main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comic-card-main {
   position: relative;
   display: inline-block;
   width: 492px;
@@ -56,36 +66,28 @@
   margin: 10px;
 }
 
-
-
-/*.comic-card-line {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  margin: 10px;*/
-/*  !* Остальные стили для .comic-card-line *!*/
-/*}*/
-
-
-.comic-details {
+.comic-details-main {
   display: flex;
-  align-items: center;
   padding: 10px;
 }
 
-.cover-image {
-  width: 120px;
-  height: 180px;
+.cover-image-main {
+  width: 176px;
+  height: 244px;
   object-fit: cover;
   margin-right: 10px;
+  border-radius: 10px;
 }
 
-.comic-info {
+.comic-info-main {
   flex: 1;
 }
 
-/* Дополнительные стили с использованием Tailwind CSS */
-.comics-list-main {
-  display: flex;
-  flex-wrap: wrap;
+.comic-main-title{
+  font-weight: 600;
+  font-size: 18px;
 }
 
+.comic-main-genre{
+  color: #DE6262;
+}

@@ -17,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { HeaderNotLoggedComponent } from './header-not-logged/header-not-logged.component';
 import { UniqueUsernameDirective } from './registration/unique-username.directive';
 import { VerificationComponent } from './verification/verification.component';
+import {GenreTranslateService} from "./genre-translate.pipe";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { VerificationComponent } from './verification/verification.component';
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [GenreTranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { MainService} from "../services/mainservice";
 import {Comic} from "./comic";
+import {GenreTranslateService} from "../genre-translate.pipe";
+
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,7 @@ import {Comic} from "./comic";
 export class HomeComponent implements OnInit{
   comics: Comic[] = [];
 
-  constructor(private mainService: MainService) { }
+  constructor(private mainService: MainService, private genreTranslateService: GenreTranslateService) { }
 
   ngOnInit(): void {
     this.mainService.getComics().subscribe(comics => {
@@ -22,5 +24,9 @@ export class HomeComponent implements OnInit{
   getComicImageURL(imageCoverBase64: string): string {
     // Преобразование base64-кода в URL изображения
     return 'data:image/jpeg;base64,' + imageCoverBase64;
+  }
+
+  translateGenre(genre: string): string {
+    return this.genreTranslateService.translateGenre(genre); // Используйте метод translateGenre из сервиса перевода жанров
   }
 }

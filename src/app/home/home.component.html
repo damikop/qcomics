@@ -5,8 +5,8 @@
       <div class="comic-details-banner">
         <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
         <div class="comic-info-banner">
-          <p class="genre">{{ comic.genres.join(', ') }}</p>
-          <h3 class="title">{{ comic.name }}</h3>
+          <p class="comic-banner-genre" *ngFor="let genre of comic.genres">{{ translateGenre(genre) }}</p>
+          <h3 class="comic-banner-title">{{ comic.name }}</h3>
         </div>
       </div>
     </div>
@@ -14,18 +14,17 @@
 
   <div class="comics-list-main">
     <!-- List of comics with descriptions, ratings, and types -->
-    <div *ngFor="let comic of comics" class="comic-card">
-      <div class="comic-details">
-        <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
-        <div class="comic-info">
-          <h3>{{ comic.name }}</h3>
-          <p>{{ comic.genres.join(', ') }}</p>
-          <p>Description: {{ comic.description }}</p>
-          <p>Rating: {{ comic.rating }}</p>
-          <p>Type: {{ comic.type }}</p>
+    <div *ngFor="let comic of comics" class="comic-card-main">
+      <div class="comic-details-main">
+        <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image-main">
+        <div class="comic-info-main">
+          <h3 class="comic-main-title">{{ comic.name }}</h3>
+          <span class="comic-main-genre" *ngFor="let genre of comic.genres">{{ translateGenre(genre) }}</span>
+          <p class="comic-main-description">{{ comic.description }}</p>
+          <p class="comic-main-rating">Rating: {{ comic.rating }}</p>
+          <p class="comic-main-type">Type: {{ comic.type }}</p>
         </div>
       </div>
     </div>
   </div>
-
 </div>
