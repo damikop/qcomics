@@ -1,47 +1,64 @@
-<h1 class="text-2xl font-bold text-center">Публикуйте свои комиксы</h1>
+<form (submit)="publishComic()">
+  <h1 class="text-2xl font-bold text-center">Публикуйте свои комиксы</h1>
 
-<div class="flex flex-col justify-center">
+  <div class="flex flex-col justify-center">
+    <div class="row flex main">
+      <div class="loadCover">
+        <h2 class="font-bold">Создайте свой комикс</h2>
+        <h3>Обложка комикса</h3>
 
-  <div class="row flex justify-around">
-    <div class="">
-      <div class="">
-        <h2 class="text-1xl font-bold">Создайте комикс</h2>
-      </div>
-      <div class="">
-        <div class="border border-gray-300 bg-gray-300 p-4">
-          <div class="flex items-center justify-center mb-4">
-            <svg class="w-8 h-8 text-gray-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-            </svg>
-            <p>Выберите изображение для загрузки или перетащите файл изображения сюда</p>
-          </div>
-          <input type="file" accept="image/*" class="hidden">
+<!--        <div class="cover border border-gray-300 p-4" (dragover)="handleDragOver($event)" (drop)="handleDrop($event)">-->
+<!--          <div class="flex items-center flex-col items-center justify-center mb-4 h-full">-->
+<!--            <svg class="w-8 h-8 text-gray-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">-->
+<!--              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>-->
+<!--            </svg>-->
+<!--            <p>Выберите изображение для загрузки или перетащите файл изображения сюда</p>-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <div>
+          <img [src]="url" width="232">
         </div>
+        <input type="file" accept="image/jpeg, image/jpg, image/png" (change)="handleFileInput($event)">
       </div>
+
+      <section>
+        <div class="mb-10">
+          <label for="genre" class="block font-bold mb-2">Жанр</label>
+          <select id="genre" name="genre" class="border border-gray-300 rounded p-2 w-full" [(ngModel)]="selectedGenre" (change)="addGenre()">
+            <option value="">Выберите один или несколько жанров</option>
+            <option value="ACTION">Экшн</option>
+            <option value="COMEDY">Комедия</option>
+            <option value="DRAMA">Драма</option>
+            <option value="ADVENTURES">Приключения</option>
+            <option value="FANTASTIC">Фантастика</option>
+            <option value="CHILDREN">Детское</option>
+            <option value="ROMANTIC">Романтика</option>
+            <option value="DAILY">Повседневность</option>
+          </select>
+          <div *ngFor="let genre of selectedGenres; let i = index" class="selected-genre">
+            {{ genre }}
+            <button id="buttonRemoveGenre" (click)="removeGenre(i)">x</button>
+          </div>
+        </div>
+
+        <div class="mb-10">
+          <label for="title" class="block font-bold">Название комикса</label>
+          <input required type="text" id="title" name="title" placeholder="Менее 50 символов" class="border border-gray-300 rounded p-2 w-full"
+                 maxlength="50" [(ngModel)]="title">
+        </div>
+
+        <div class="mb-10">
+          <label for="summary" class="block font-bold mb-2">Краткое содержание</label>
+          <textarea id="summary" name="summary" rows="4" placeholder="Менее 500 символов" class="border border-gray-300 rounded p-2 w-full"
+                    maxlength="500" [(ngModel)]="summary"></textarea>
+        </div>
+
+        <button id="mainButton" type="submit" class=" text-white font-bold py-2 px-4 rounded">
+          Создать комикс
+        </button>
+      </section>
     </div>
-
-    <form class="w-96">
-      <div class="mb-4">
-        <label for="genre" class="block font-bold mb-2">Жанр</label>
-        <select id="genre" name="genre" class="border border-gray-300 rounded p-2 w-full">
-          <option value="">Выберите один или несколько жанров</option>
-          <!-- Добавьте здесь опции для различных жанров -->
-        </select>
-      </div>
-
-      <div class="mb-4">
-        <label for="title" class="block font-bold mb-2">Название комикса</label>
-        <input type="text" id="title" name="title" placeholder="Менее 50 символов" class="border border-gray-300 rounded p-2 w-full">
-      </div>
-
-      <div class="mb-4">
-        <label for="summary" class="block font-bold mb-2">Краткое содержание</label>
-        <textarea id="summary" name="summary" rows="4" placeholder="Менее 500 символов" class="border border-gray-300 rounded p-2 w-full"></textarea>
-      </div>
-
-      <button type="submit" class=" text-white font-bold py-2 px-4 rounded">
-        Создать комикс
-      </button>
-    </form>
   </div>
-</div>
+
+</form>

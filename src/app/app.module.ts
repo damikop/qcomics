@@ -18,6 +18,7 @@ import { HeaderNotLoggedComponent } from './header-not-logged/header-not-logged.
 import { UniqueUsernameDirective } from './registration/unique-username.directive';
 import { VerificationComponent } from './verification/verification.component';
 import {GenreTranslateService} from "./genre-translate.pipe";
+import { ComicDetailsComponent } from './comic-details/comic-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {GenreTranslateService} from "./genre-translate.pipe";
     RegistrationComponent,
     HeaderNotLoggedComponent,
     UniqueUsernameDirective,
-    VerificationComponent
+    VerificationComponent,
+    ComicDetailsComponent
   ],
   imports: [
     BrowserModule,

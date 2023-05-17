@@ -1,8 +1,61 @@
-button {
+form{
+  width: 1440px;
+  margin: 0 auto;
+}
+#mainButton {
   background: linear-gradient(to right, #DE6262, #FFB88C);
   /* добавьте любые другие стили, такие как размер, цвет текста и т.д. */
 }
 
 h1{
-  margin-top: 120px;
+  margin-top: 140px;
+  color: #DE6262;
+}
+
+.row{
+  margin-top: 3em;
+}
+.loadCover h2{
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.loadCover h3{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cover{
+  width: 16em;
+  height: 26em;
+  background: #DCD6D7;
+}
+
+.cover p{
+  text-align: center;
+}
+
+.main {
+
+}
+section{
+  margin-top: 50px;
+  margin-left: 120px;
+}
+.mb-10{
+  width: 700px;
+}
+
+.selected-genre{
+  background-color: #DE6262;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 4px 12px;
+  margin-right: 8px;
+  margin-top: 10px;
+  color: white;
+}
+
+#buttonRemoveGenre{
+  color: white;
+  padding-left: 5px;
 }

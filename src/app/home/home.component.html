@@ -6,7 +6,9 @@
         <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
         <div class="comic-info-banner">
           <p class="comic-banner-genre" *ngFor="let genre of comic.genres">{{ translateGenre(genre) }}</p>
-          <h3 class="comic-banner-title">{{ comic.name }}</h3>
+          <h3 class="comic-banner-title">
+            <a [routerLink]="['/comic', comic.name]">{{ comic.name }}</a>
+          </h3>
         </div>
       </div>
     </div>

@@ -20,6 +20,9 @@ export class RegistrationComponent{
   };
   showVerificationModal: boolean = false;
   verificationCode: string = '';
+  registrationStatus: string = '';
+  emailSent: boolean = false;
+  errorMessage: string = '';
 
 
   constructor(private router: Router,
@@ -28,17 +31,17 @@ export class RegistrationComponent{
   submit(){
     this.authService.register(this.userInfoRegister).subscribe(
       (value) => {
-        this.authService.setToken(value.token);
+        // this.authService.setToken(value.token);
         // После успешной регистрации отобразить модальное окно
         this.showVerificationModal = true;
+        // this.registrationStatus = 'Email sent';
+        this.emailSent = true;
+      },
+      (error) => {
+        console.error('Ошибка регистрации:', error);
+        // Добавьте обработку ошибки регистрации, если требуется
       }
       );
-    // this.authService.register(this.userInfoRegister).subscribe(
-    //   (value) => {
-    //     this.authService.setToken(value.token);
-    //     this.router.navigate(['/verification']);
-    //   }
-    // );
   }
 
   submitCode() {
@@ -48,15 +51,13 @@ export class RegistrationComponent{
 
     this.authService.validate(validationData).subscribe(
       (response) => {
-        // Валидация прошла успешно
-        // Выполните действия, необходимые после успешной валидации
-        // Например, перенаправление на главную страницу
+
         this.router.navigate(['/home']);
       },
       (error) => {
-        // Валидация не удалась
-        // Обработайте ошибку в соответствии с вашими требованиями
+
         console.error('Ошибка валидации:', error);
+        this.errorMessage = 'Неверный код подтверждения. Пожалуйста, проверьте код и попробуйте снова.';
       }
     );
   }
