@@ -9,7 +9,7 @@ import {AuthService} from "../services/authservice";
 export class HeaderNotLoggedComponent implements OnInit{
   isAuthenticated: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.isAuthenticated().subscribe((isAuthenticated) => {

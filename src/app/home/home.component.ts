@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { MainService} from "../services/mainservice";
-import {Comic} from "./comic";
+import {Comic} from "../comic";
 import {GenreTranslateService} from "../genre-translate.pipe";
 
 

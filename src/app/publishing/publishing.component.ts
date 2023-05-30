@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Comic} from "../home/comic";
+import {Comic} from "../comic";
 import {MainService} from "../services/mainservice";
 import {formatDate} from "@angular/common";
 
@@ -23,7 +23,7 @@ export class PublishingComponent {
     author: '', // Замените на значение из формы
     imageCoverBase64: this.url,
     rating: 0,
-    rates: 0,
+    votes: 0,
     description: this.summary,
     type: 'AUTHOR',
     publishedDate: '2023-05-17',

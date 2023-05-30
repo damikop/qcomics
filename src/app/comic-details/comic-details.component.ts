@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {MainService} from "../services/mainservice";
-import {Comic} from "../home/comic";
-import {Chapter} from "./Chapter";
+import {Comic} from "../comic";
+import {Chapter} from "../Chapter";
+import {GenreTranslateService} from "../genre-translate.pipe";
 
 @Component({
   selector: 'app-comic-details',
@@ -17,7 +18,8 @@ export class ComicDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private mainService: MainService
+    private mainService: MainService,
+    private genreTranslateService: GenreTranslateService
   ) { }
   ngOnInit() {
     const comicName = this.route.snapshot.paramMap.get('name');
@@ -45,5 +47,11 @@ export class ComicDetailsComponent implements OnInit {
     return 'data:image/jpeg;base64,' + imageCoverBase64;
   }
 
+  translateGenre(genre: string): string {
+    return this.genreTranslateService.translateGenre(genre); // Используйте метод translateGenre из сервиса перевода жанров
+  }
 
 }
+
+
+

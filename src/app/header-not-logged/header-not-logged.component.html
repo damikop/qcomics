@@ -13,9 +13,18 @@
       <div class="right">
         <a routerLink="/publishing"><img src="assets/images/Create.png" alt="publish"></a>
         <input type="text" class="search-input w-72 h-12 rounded-full border border-gray-500" placeholder="Поиск">
-        <a *ngIf="!isAuthenticated" id="login" routerLink="/login">Войти</a>
-        <a *ngIf="!isAuthenticated" routerLink="/registration">Регистрация</a>
+        <ng-container *ngIf="isAuthenticated; else notLoggedInSection">
+          <!-- Секция для залогиненного пользователя -->
+          <a routerLink="/profile">Профайл</a>
+          <a>Закладки</a>
+        </ng-container>
+        <ng-template #notLoggedInSection>
+          <!-- Секция для не залогиненного пользователя -->
+          <a routerLink="/login">Войти</a>
+          <a routerLink="/registration">Регистрация</a>
+        </ng-template>
       </div>
+
     </li>
   </ul>
 </nav>

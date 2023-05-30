@@ -1,22 +1,22 @@
 <div class="home">
   <div class="comics-list-banner">
     <!-- List of comics with covers, names, and genres -->
-    <div *ngFor="let comic of comics" class="comic-card-banner">
+    <a [routerLink]="['/comic', comic.name]" *ngFor="let comic of comics" class="comic-card-banner">
       <div class="comic-details-banner">
         <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
         <div class="comic-info-banner">
           <p class="comic-banner-genre" *ngFor="let genre of comic.genres">{{ translateGenre(genre) }}</p>
           <h3 class="comic-banner-title">
-            <a [routerLink]="['/comic', comic.name]">{{ comic.name }}</a>
+            <a>{{ comic.name }}</a>
           </h3>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 
   <div class="comics-list-main">
     <!-- List of comics with descriptions, ratings, and types -->
-    <div *ngFor="let comic of comics" class="comic-card-main">
+    <a [routerLink]="['/comic', comic.name]" *ngFor="let comic of comics" class="comic-card-main">
       <div class="comic-details-main">
         <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image-main">
         <div class="comic-info-main">
@@ -27,6 +27,7 @@
           <p class="comic-main-type">Type: {{ comic.type }}</p>
         </div>
       </div>
-    </div>
+    </a>
   </div>
+
 </div>

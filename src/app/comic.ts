@@ -4,9 +4,12 @@ export interface Comic {
   author: string;
   imageCoverBase64: string;
   rating: number;
-  rates: number;
+  votes: number;
   description: string;
   type: string;
   publishedDate: string;
   isUpdated: boolean;
 }
+
+
+

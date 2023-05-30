@@ -19,6 +19,7 @@ import { UniqueUsernameDirective } from './registration/unique-username.directiv
 import { VerificationComponent } from './verification/verification.component';
 import {GenreTranslateService} from "./genre-translate.pipe";
 import { ComicDetailsComponent } from './comic-details/comic-details.component';
+import { ChapterComponent } from './chapter/chapter.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ComicDetailsComponent } from './comic-details/comic-details.component';
     HeaderNotLoggedComponent,
     UniqueUsernameDirective,
     VerificationComponent,
-    ComicDetailsComponent
+    ComicDetailsComponent,
+    ChapterComponent
   ],
   imports: [
     BrowserModule,

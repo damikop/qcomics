@@ -1,18 +1,28 @@
-<div *ngIf="comic">
-  <h1>{{ comic.name }}</h1>
-  <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
-  <p>{{ comic.description }}</p>
-  <p>Rating: {{ comic.rating }}</p>
-  <p>Type: {{ comic.type }}</p>
+<div class="main">
+  <div class="comic" *ngIf="comic">
+    <h1 class="title">{{ comic.name }}</h1>
+    <div class="comic-detail">
+      <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
+      <div class="description">
+        <span class="author">Автор: </span>
+        <span class="author-name">{{comic.author}}</span> <br><br>
+        <span class="genre">Жанр: </span>
+        <span class="genre-name" *ngFor="let genre of comic.genres">{{ translateGenre(genre) }}</span><br> <br>
+        <p>{{ comic.description }}</p>
+        <p>Rating: {{ comic.rating }}</p>
+        <p>Type: {{ comic.type }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="chapters">
+    <h2>Chapters</h2>
+    <ul>
+      <li *ngFor="let chapter of chapters">
+        <a [routerLink]="'chapter/' + chapter.id">{{ chapter.name }}</a>
+      </li>
+    </ul>
+  </div>
+
+
 </div>
-
-<div *ngIf="chapters">
-  <h2>Chapters</h2>
-  <ul>
-    <li *ngFor="let chapter of chapters">
-      <a [routerLink]="['/chapter', chapter.id]">{{ chapter.name }}</a>
-    </li>
-  </ul>
-</div>
-
-

@@ -1,0 +1,34 @@
+.main{
+  margin-top: 100px;
+}
+.comic{
+  width: 1640px;
+  margin: 0 auto;
+}
+.title{
+  font-weight: 600;
+  font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.cover-image{
+  width: 284px;
+  height: 426px;
+  border-radius: 16px;
+}
+.comic-detail{
+  display: flex;
+  align-items: center;
+}
+.description{
+  padding-left: 20px;
+}
+.author, .genre{
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 10px;
+}
+.author-name, .genre-name{
+  color: #DE6262;
+  font-weight: 900;
+}

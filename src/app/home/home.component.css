@@ -51,6 +51,8 @@
 .comics-list-main {
   display: flex;
   flex-wrap: wrap;
+  width: 1640px;
+  margin: 0 auto;
 }
 
 .comic-card-main {

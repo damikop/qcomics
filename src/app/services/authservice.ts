@@ -31,62 +31,21 @@ export class AuthService {
     return this.httpClient.post<{token: string}>(`${this.apiUrl}api/v1/auth/authenticate`, payload)
   }
 
-  // register(payload: {username: string, password: string, email: string}){
-  //   return this.httpClient.post<{}>(`${this.apiUrl}api/v1/auth/register`, payload)
-  // }
-
-  // register(payload: UserInfoRegister) {
-  //   return this.httpClient.post<{}>(`${this.apiUrl}api/v1/auth/register`, payload);
-  // }
-  // register(payload: UserInfoRegister): Observable<any> {
-  //   return this.httpClient.post(`${this.apiUrl}api/v1/auth/register`, payload);
-  // }
 
   register(payload: { username: string, password: string, email: string }) {
     return this.httpClient.post(`${this.apiUrl}api/v1/auth/register`, payload, { responseType: 'text' });
   }
-
-
-
-  // validate(data: ValidationData): Observable<any> {
-  //   return this.httpClient.post<any>(`${this.apiUrl}api/v1/auth/validate`, data)
-  // }
-  //
-  // resendVerificationCode(): Observable<any> {
-  //   const url = `${this.apiUrl}api/v1/auth/validate`;
-  //   return this.httpClient.post<any>(url, {});
-  // }
 
   validate(validationData: any) {
     return this.httpClient.post(`${this.apiUrl}api/v1/auth/validate`, validationData, { responseType: 'text' });
   }
 
   resendVerificationCode() {
-    return this.httpClient.get(`${this.apiUrl}api/v1/auth/resend-code`, { responseType: 'text' });
+    return this.httpClient.post(`${this.apiUrl}api/v1/auth/validate`, { responseType: 'text' });
   }
 
   setToken(token: string){
     localStorage.setItem(TOKEN_KEY, token)
   }
 
-
-  // private handleError(error: HttpErrorResponse) {
-  //   let errorMessage = 'An error occurred';
-  //
-  //   if (error.error instanceof ErrorEvent) {
-  //     // Клиентская ошибка
-  //     errorMessage = error.error.message;
-  //   } else {
-  //     // Ошибка на стороне сервера
-  //     errorMessage = error.error.message || errorMessage;
-  //   }
-  //
-  //   // Здесь вы можете выполнить необходимую обработку ошибки,
-  //   // например, отображение сообщения об ошибке или запись в журнал ошибок
-  //
-  //   console.error('HTTP Error:', error.status);
-  //   console.error('Error Message:', errorMessage);
-  //
-  //   return throwError(errorMessage);
-  // }
 }

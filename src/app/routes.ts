@@ -8,6 +8,7 @@ import {SearchResultComponent} from "./search-result/search-result.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {VerificationComponent} from "./verification/verification.component";
 import {ComicDetailsComponent} from "./comic-details/comic-details.component";
+import {ChapterComponent} from "./chapter/chapter.component";
 
 export const routes: Routes = [
   {
@@ -50,5 +51,10 @@ export const routes: Routes = [
   {
     path: 'comic/:name',
     component: ComicDetailsComponent
+  },
+  {
+    path: 'comic/:name/chapter/:id',
+    component: ChapterComponent
   }
-  ];
+
+];

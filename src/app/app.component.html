@@ -1,11 +1,19 @@
-<!--<ng-container *ngIf="isLoggedIn(); else LoggedHeader">-->
-<!--  <app-header-not-logged></app-header-not-logged>-->
-<!--</ng-container>-->
+<div class="page">
 
-<!--<ng-template #LoggedHeader>-->
-<!--  <app-header-logged></app-header-logged>-->
-<!--</ng-template>-->
+  <app-header-not-logged></app-header-not-logged>
 
-<app-header-not-logged></app-header-not-logged>
+  <router-outlet></router-outlet>
 
-<router-outlet></router-outlet>
+  <footer>
+    <div class="left">
+      <p>© 2023 Qcomics</p>
+      <div class="line"></div>
+      <p>Контакты</p>
+    </div>
+    <div class="right">
+      <p>Скачайте приложение для удобного чтения!</p>
+      <img src="assets/images/icon-google-play.png">
+    </div>
+  </footer>
+
+</div>

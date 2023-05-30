@@ -7,3 +7,29 @@
   box-sizing: border-box;
   background: white;
 }
+.page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid #848382;
+  height: 72px;
+  background-color: white;
+}
+img{
+  width: 126px;
+  height: 38px;
+}
+.left, .right{
+  display: flex;
+}
+.line{
+  width: 10px;
+  height: 10px;
+  color: black;
+}
