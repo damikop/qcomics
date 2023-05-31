@@ -9,6 +9,8 @@ import {RegistrationComponent} from "./registration/registration.component";
 import {VerificationComponent} from "./verification/verification.component";
 import {ComicDetailsComponent} from "./comic-details/comic-details.component";
 import {ChapterComponent} from "./chapter/chapter.component";
+import {ProfileComponent} from "./profile/profile.component";
+import {BookmarkComponent} from "./bookmark/bookmark.component";
 
 export const routes: Routes = [
   {
@@ -53,8 +55,16 @@ export const routes: Routes = [
     component: ComicDetailsComponent
   },
   {
-    path: 'comic/:name/chapter/:id',
+    path: 'comic/:name/chapter/:name',
     component: ChapterComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'bookmark',
+    component: BookmarkComponent
   }
 
 ];

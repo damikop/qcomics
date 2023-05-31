@@ -1,0 +1,54 @@
+
+
+.comics-list-main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1640px;
+  margin: 0 auto;
+  margin-top: 130px;
+}
+
+.comic-card-main {
+  position: relative;
+  display: inline-block;
+  width: 492px;
+  height: 272px;
+  background: #FFFFFF;
+  border: 0.5px solid #848382;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  flex-basis: calc(50% - 20px); /* Чтобы отображать по две карточки в ряду, ширина должна быть 50% минус отступы */
+  margin: 10px;
+}
+
+.comic-details-main {
+  display: flex;
+  padding: 10px;
+}
+
+.cover-image-main {
+  width: 176px;
+  height: 244px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.comic-info-main {
+  flex: 1;
+
+}
+
+.comic-main-title{
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.comic-main-genre{
+  color: #DE6262;
+}
+.comic-main-description {
+  height: 150px; /* Задайте желаемую высоту для описания комикса */
+  overflow: hidden; /* Скрывает текст, который выходит за высоту */
+  text-overflow: ellipsis; /* Добавляет многоточие в конце обрезанного текста */
+}

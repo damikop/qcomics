@@ -24,7 +24,6 @@ export class RegistrationComponent{
   emailSent: boolean = false;
   errorMessage: string = '';
 
-
   constructor(private router: Router,
               private authService: AuthService) { }
 
@@ -34,7 +33,7 @@ export class RegistrationComponent{
         // this.authService.setToken(value.token);
         // После успешной регистрации отобразить модальное окно
         this.showVerificationModal = true;
-        // this.registrationStatus = 'Email sent';
+        this.authService.setIsAuthenticated(true);
         this.emailSent = true;
       },
       (error) => {
@@ -48,14 +47,11 @@ export class RegistrationComponent{
     const validationData: ValidationData = {
       verificationCode: this.verificationCode
     };
-
     this.authService.validate(validationData).subscribe(
       (response) => {
-
         this.router.navigate(['/home']);
       },
       (error) => {
-
         console.error('Ошибка валидации:', error);
         this.errorMessage = 'Неверный код подтверждения. Пожалуйста, проверьте код и попробуйте снова.';
       }

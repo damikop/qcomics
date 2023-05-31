@@ -1,44 +1,48 @@
-import {Component, OnInit} from '@angular/core';
-import {MainService} from "../services/mainservice";
-import {ActivatedRoute} from "@angular/router";
-import {Chapter} from "../Chapter";
+import { Component, OnInit } from '@angular/core';
+import { MainService } from "../services/mainservice";
+import { ActivatedRoute } from "@angular/router";
+import { Chapter } from "../Chapter";
+import {imageChapter} from "../imageChapter";
 
 @Component({
   selector: 'app-chapter',
   templateUrl: './chapter.component.html',
   styleUrls: ['./chapter.component.css']
 })
-export class ChapterComponent implements OnInit{
-  chapter!: Chapter;
-  images: any[] = [];
+export class ChapterComponent implements OnInit {
+  chapter: Chapter[]=[];
+  images: imageChapter[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private mainService: MainService
   ) {}
 
-  ngOnInit() {
-    const comicName = this.route.snapshot.paramMap.get('name');
+  ngOnInit(): void {
+    const comicName = this.route.snapshot.paramMap.get('comicName');
     const chapterName = this.route.snapshot.paramMap.get('chapterName');
     if (comicName && chapterName) {
-      this.getImages(comicName, chapterName);
-    }
-  }
+      this.mainService.getImages(comicName, chapterName).subscribe(images => {
+        this.images = images;
+        console.log(images);
+      });    }
 
-  getChapterDetails(comicName: string, chapterName: string): void {
-    this.mainService.getChapters(comicName).subscribe(chapters => {
-      this.chapter = chapters.find(chapter => chapter.name === chapterName)!;
-    });
   }
 
   getChapterImageURL(base64: string): string {
     return 'data:image/jpeg;base64,' + base64;
   }
 
-  getImages(comicName: string, chapterName: string): void {
-    this.mainService.getImages(comicName, chapterName)
-      .subscribe(images => {
-        this.images = images;
-      });
-  }
+
+  // getImages(comicName: string, chapterName: string): void {
+  //   this.mainService.getImages(comicName, chapterName).subscribe(chapter => {
+  //     this.chapter = chapter;
+  //     // Продолжайте получение данных о изображениях после получения данных о главе
+  //     this.mainService.getImages(comicName, chapterName).subscribe(images => {
+  //       this.images = images;
+  //       console.log(images);
+  //     });
+  //   });
+  // }
+
 }

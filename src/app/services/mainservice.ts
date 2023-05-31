@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {Comic} from "../comic";
 import {environment} from "../../environments/environment";
 import {Chapter} from "../Chapter";
+import {imageChapter} from "../imageChapter";
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +26,6 @@ export class MainService {
     return this.httpClient.get<Chapter[]>(`${this.apiUrl}api/v1/chapters/comic-names/${comicName}`);
   }
 
-  getAllChapters(comicName: string): Observable<Chapter[]> {
-    return this.httpClient.get<Chapter[]>(`${this.apiUrl}api/v1/chapters/all`);
-  }
-
   postComic(comic: Comic): Observable<Comic> {
     return this.httpClient.post<Comic>(`${this.apiUrl}api/v1/comics/save`, comic);
   }
@@ -41,9 +38,10 @@ export class MainService {
     return this.httpClient.delete<void>(`${this.apiUrl}api/v1/comics/${name}`);
   }
 
-  getImages(comicName: string, chapterName: string): Observable<any[]> {
-    return this.httpClient.get<any[]>(`${this.apiUrl}api/v1/images/all?comicName=${comicName}&chapterName=${chapterName}`);
+  getImages(comicName: string, chapterName: string): Observable<imageChapter[]> {
+    return this.httpClient.get<imageChapter[]>(`${this.apiUrl}api/v1/images/all?comicName=${comicName}&chapterName=${chapterName}`);
   }
+
 
 
 }

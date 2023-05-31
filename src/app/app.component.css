@@ -14,13 +14,14 @@
 }
 footer{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-top: auto;
   border-top: 1px solid #848382;
   height: 72px;
   background-color: white;
 }
+
 img{
   width: 126px;
   height: 38px;
@@ -28,8 +29,13 @@ img{
 .left, .right{
   display: flex;
 }
+.right p{
+  margin-right: 20px;
+}
 .line{
-  width: 10px;
-  height: 10px;
-  color: black;
+  margin: 0 16px;
+  width: 1px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #848382;
 }

@@ -28,14 +28,11 @@ li{
 }
 ul li a{
   /*font-family: 'Montserrat', serif;*/
-
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   /* identical to box height, or 16px */
-
   text-align: center;
-
   color: #000000;
 }
 .search-input{
@@ -45,6 +42,7 @@ ul li a{
   background-repeat: no-repeat;
   background-position: 5px center;
   border: 1px solid #ACA7A5;
+  margin-right: 24px;
 }
 .search-input:focus{
   border-color: #DE6262;

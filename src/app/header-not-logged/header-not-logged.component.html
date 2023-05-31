@@ -2,7 +2,7 @@
   <ul>
     <li>
       <a routerLink="/home">
-        <img src="assets/images/logo.png" alt="Logo">
+        <img src="/assets/images/Logo.png" alt="Logo">
       </a>
       <div class="comics-menu">
         <a class="text-3xl" routerLink="/studio-comics">Студийные комиксы</a>
@@ -13,18 +13,22 @@
       <div class="right">
         <a routerLink="/publishing"><img src="assets/images/Create.png" alt="publish"></a>
         <input type="text" class="search-input w-72 h-12 rounded-full border border-gray-500" placeholder="Поиск">
-        <ng-container *ngIf="isAuthenticated; else notLoggedInSection">
+        <ng-container class="logged" *ngIf="isAuthenticated; else notLoggedInSection">
           <!-- Секция для залогиненного пользователя -->
-          <a routerLink="/profile">Профайл</a>
-          <a>Закладки</a>
+          <a routerLink="/bookmark">
+            <img src="assets/images/Bookmark.png" alt="bookmark">
+          </a>
+          <a routerLink="/profile">
+            <img src="assets/images/Avatarka.png" alt="Profile">
+          </a>
+
         </ng-container>
-        <ng-template #notLoggedInSection>
+        <ng-template class="notlogged" #notLoggedInSection>
           <!-- Секция для не залогиненного пользователя -->
           <a routerLink="/login">Войти</a>
           <a routerLink="/registration">Регистрация</a>
         </ng-template>
       </div>
-
     </li>
   </ul>
 </nav>

@@ -93,3 +93,8 @@
 .comic-main-genre{
   color: #DE6262;
 }
+.comic-main-description {
+  height: 150px; /* Задайте желаемую высоту для описания комикса */
+  overflow: hidden; /* Скрывает текст, который выходит за высоту */
+  text-overflow: ellipsis; /* Добавляет многоточие в конце обрезанного текста */
+}

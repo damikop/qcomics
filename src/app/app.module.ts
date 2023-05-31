@@ -20,6 +20,8 @@ import { VerificationComponent } from './verification/verification.component';
 import {GenreTranslateService} from "./genre-translate.pipe";
 import { ComicDetailsComponent } from './comic-details/comic-details.component';
 import { ChapterComponent } from './chapter/chapter.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BookmarkComponent } from './bookmark/bookmark.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ChapterComponent } from './chapter/chapter.component';
     UniqueUsernameDirective,
     VerificationComponent,
     ComicDetailsComponent,
-    ChapterComponent
+    ChapterComponent,
+    ProfileComponent,
+    BookmarkComponent
   ],
   imports: [
     BrowserModule,
