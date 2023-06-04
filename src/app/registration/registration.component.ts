@@ -34,6 +34,7 @@ export class RegistrationComponent{
         // После успешной регистрации отобразить модальное окно
         this.showVerificationModal = true;
         this.authService.setIsAuthenticated(true);
+        this.authService.setUsername(this.userInfoRegister.username);
         this.emailSent = true;
       },
       (error) => {

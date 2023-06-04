@@ -1,11 +1,6 @@
-<!--<div class="chapter">-->
-<!--  <h1 class="title" *ngIf="chapter && chapter.name">{{ chapter.name }}</h1>-->
-<!--  <div class="images">-->
-<!--    <img *ngFor="let image of images" [src]="getChapterImageURL(image)" alt="Chapter Image">-->
-<!--  </div>-->
-<!--</div>-->
 
 <div class="images">
   <img *ngFor="let image of images" [src]="getChapterImageURL(image.base64)" alt="Chapter Image">
 </div>
+
 

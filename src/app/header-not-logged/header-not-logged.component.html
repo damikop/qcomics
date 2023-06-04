@@ -10,18 +10,30 @@
       </div>
     </li>
     <li>
+<!--      <ng-container>-->
+<!--        <div class="chapter-navigation" *ngIf="showChapterNavigation && selectedChapter">-->
+<!--          <a (click)="goToPreviousChapter()" class="navigation-button">Назад</a>-->
+<!--          <span class="chapter-number">{{ selectedChapter.name }}</span>-->
+<!--          <a (click)="goToNextChapter()" class="navigation-button">Вперед</a>-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <div class="chapter-navigation">&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navigation-button">Назад</a>&ndash;&gt;-->
+<!--&lt;!&ndash;          <span class="chapter-number">Глава {{chapterNumber}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;          <a class="navigation-button">Вперед</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      </ng-container>-->
       <div class="right">
         <a routerLink="/publishing"><img src="assets/images/Create.png" alt="publish"></a>
         <input type="text" class="search-input w-72 h-12 rounded-full border border-gray-500" placeholder="Поиск">
-        <ng-container class="logged" *ngIf="isAuthenticated; else notLoggedInSection">
+        <ng-container  class="logged" *ngIf="isAuthenticated; else notLoggedInSection">
           <!-- Секция для залогиненного пользователя -->
           <a routerLink="/bookmark">
             <img src="assets/images/Bookmark.png" alt="bookmark">
           </a>
+
           <a routerLink="/profile">
             <img src="assets/images/Avatarka.png" alt="Profile">
           </a>
-
         </ng-container>
         <ng-template class="notlogged" #notLoggedInSection>
           <!-- Секция для не залогиненного пользователя -->

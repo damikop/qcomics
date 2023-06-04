@@ -23,6 +23,7 @@ export class ComicDetailsComponent implements OnInit {
   ) { }
   ngOnInit() {
     const comicName = this.route.snapshot.paramMap.get('name');
+    console.log(comicName)
     if (comicName){
       this.getComicDetails(comicName);
       this.getChapters(comicName);

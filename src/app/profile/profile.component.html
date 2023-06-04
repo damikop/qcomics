@@ -1,1 +1,15 @@
-<p>profile works!</p>
+<div>
+  <h2>Профиль</h2>
+  <h3>Загруженные комиксы</h3>
+  <div *ngIf="comics.length > 0">
+    <ul>
+      <li *ngFor="let comic of comics">
+        <h4>{{ comic.name }}</h4>
+        <button (click)="addChapter(comic)">Добавить главу</button>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="comics.length === 0">
+    <p>Нет загруженных комиксов</p>
+  </div>
+</div>

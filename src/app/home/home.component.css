@@ -98,3 +98,16 @@
   overflow: hidden; /* Скрывает текст, который выходит за высоту */
   text-overflow: ellipsis; /* Добавляет многоточие в конце обрезанного текста */
 }
+
+.comic-main-rating-type {
+  font-size: 14px;
+  color: #848382;
+  margin-bottom: 8px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+

@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Comic} from "../comic";
 import {MainService} from "../services/mainservice";
 import {formatDate} from "@angular/common";
+import {Router} from "@angular/router";
+import {AuthService} from "../services/authservice";
 
 @Component({
   selector: 'app-publishing',
@@ -17,10 +19,11 @@ export class PublishingComponent {
   title: string = '';
   summary: string = '';
 
+
   comic: Comic = {
     name: this.title,
     genres: this.selectedGenres,
-    author: '', // Замените на значение из формы
+    author: '',
     imageCoverBase64: this.url,
     rating: 0,
     votes: 0,
@@ -29,6 +32,8 @@ export class PublishingComponent {
     publishedDate: '2023-05-17',
     isUpdated: false
   };
+
+
   handleFileInput(event: any) {
     if (event.target.files) {
       const reader = new FileReader();
@@ -42,14 +47,20 @@ export class PublishingComponent {
   }
 
   constructor(private httpClient: HttpClient,
-              private mainService: MainService) {}
+              private mainService: MainService,
+              private router: Router,
+              private authService: AuthService) {}
 
   publishComic(): void {
+    const author = this.authService.getUsername();
+    this.comic.author = author;
     this.comic.name = this.title;
     this.comic.description = this.summary;
     const currentDate = new Date();
     this.comic.publishedDate = formatDate(currentDate, 'dd.MM.yyyy', 'en-US');
     this.mainService.postComic(this.comic).subscribe(response => {
+      const comicName = response.name;
+      this.router.navigate(['/publishingChapter', this.comic.name], { queryParams: { comicName: comicName } });
       console.log('Комикс успешно отправлен на сервер:', response);
     }, error => {
       console.error('Произошла ошибка при отправке комикса:', error);
@@ -62,6 +73,7 @@ export class PublishingComponent {
       this.selectedGenre = '';
     }
   }
+
   removeGenre(index: number): void {
     this.selectedGenres.splice(index, 1);
   }

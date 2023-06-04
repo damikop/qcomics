@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MainService } from "../services/mainservice";
 import { ActivatedRoute } from "@angular/router";
@@ -19,14 +20,17 @@ export class ChapterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const comicName = this.route.snapshot.paramMap.get('comicName');
-    const chapterName = this.route.snapshot.paramMap.get('chapterName');
-    if (comicName && chapterName) {
-      this.mainService.getImages(comicName, chapterName).subscribe(images => {
+    const comicName = this.route.snapshot.paramMap.get('name')!;
+    const chapterName = this.route.snapshot.paramMap.get('chapterName')!;
+    console.log(chapterName);
+    console.log(comicName);
+
+    if (chapterName && comicName) {
+      this.mainService.getImages(chapterName, comicName).subscribe(images => {
         this.images = images;
         console.log(images);
-      });    }
-
+      });
+    }
   }
 
   getChapterImageURL(base64: string): string {

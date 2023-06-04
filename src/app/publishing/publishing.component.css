@@ -1,7 +1,9 @@
+
 form{
   width: 1440px;
   margin: 0 auto;
 }
+
 #mainButton {
   background: linear-gradient(to right, #DE6262, #FFB88C);
   /* добавьте любые другие стили, такие как размер, цвет текста и т.д. */
@@ -15,10 +17,12 @@ h1{
 .row{
   margin-top: 3em;
 }
+
 .loadCover h2{
   font-size: 20px;
   margin-bottom: 16px;
 }
+
 .loadCover h3{
   font-size: 18px;
   font-weight: 600;

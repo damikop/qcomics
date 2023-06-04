@@ -11,6 +11,8 @@ import {ComicDetailsComponent} from "./comic-details/comic-details.component";
 import {ChapterComponent} from "./chapter/chapter.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {BookmarkComponent} from "./bookmark/bookmark.component";
+import {PublishingChapterComponent} from "./publishing-chapter/publishing-chapter.component";
+import {AuthGuard} from "./auth.guard";
 
 export const routes: Routes = [
   {
@@ -32,7 +34,12 @@ export const routes: Routes = [
   },
   {
     path: 'publishing',
-    component: PublishingComponent
+    component: PublishingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'publishingChapter/:name',
+    component: PublishingChapterComponent
   },
   {
     path: 'search-result',
@@ -55,7 +62,7 @@ export const routes: Routes = [
     component: ComicDetailsComponent
   },
   {
-    path: 'comic/:name/chapter/:name',
+    path: 'comic/:name/chapter/:chapterName',
     component: ChapterComponent
   },
   {

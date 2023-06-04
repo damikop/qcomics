@@ -1,0 +1,17 @@
+<h2>Список комиксов</h2>
+
+<div *ngIf="comics.length > 0">
+  <ul>
+    <li *ngFor="let comic of comics">
+      <img [src]="comic.imageCoverBase64" alt="{{ comic.name }} Cover">
+      <h3>{{ comic.name }}</h3>
+      <p>{{ comic.description }}</p>
+      <button (click)="addChapter(comic.name)">Добавить главу</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="comics.length === 0">
+  <p>Нет загруженных комиксов.</p>
+</div>
+

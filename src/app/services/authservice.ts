@@ -5,6 +5,8 @@ import { tap } from 'rxjs/operators';
 import {UserInfoRegister} from "../registration/user-info-register";
 import {environment} from "../../environments/environment";
 import {ValidationData} from "../verification/validationData";
+import {UserInfo} from "../user-info";
+import { Router } from '@angular/router';
 
 const TOKEN_KEY = 'token'
 
@@ -17,7 +19,33 @@ export class AuthService {
 
   private isAuthenticatedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
+  private redirectUrl: string | null = null;
+
+  setRedirectUrl(url: string): void {
+    localStorage.setItem('redirectUrl', url);
+  }
+
+  getRedirectUrl(): string | null {
+    return localStorage.getItem('redirectUrl');
+  }
+
+  clearRedirectUrl(): void {
+    localStorage.removeItem('redirectUrl');
+  }
+
+
+  private username: string = '';
+
+  getUsername(): string {
+    return this.username;
+  }
+
+  setUsername(username: string): void {
+    this.username = username;
+  }
+
+
 
   setIsAuthenticated(isAuthenticated: boolean): void {
     this.isAuthenticatedSubject.next(isAuthenticated);
@@ -27,8 +55,20 @@ export class AuthService {
     return this.isAuthenticatedSubject.asObservable();
   }
 
-  login(payload: {username: string, password: string}){
-    return this.httpClient.post<{token: string}>(`${this.apiUrl}api/v1/auth/authenticate`, payload)
+  login(payload: {username: string, password: string}) {
+    return this.httpClient.post<{token: string}>(`${this.apiUrl}api/v1/auth/authenticate`, payload).pipe(
+      tap(() => {
+        this.setIsAuthenticated(true);
+        const redirectUrl = this.getRedirectUrl();
+        if (redirectUrl) {
+          this.clearRedirectUrl();
+          this.router.navigateByUrl(redirectUrl);
+        } else {
+          this.router.navigate(['/home']);
+        }
+      })
+
+    );
   }
 
 
@@ -44,8 +84,17 @@ export class AuthService {
     return this.httpClient.post(`${this.apiUrl}api/v1/auth/validate`, { responseType: 'text' });
   }
 
+  getUserByUsername(username: string): Observable<UserInfo> {
+    return this.httpClient.get<UserInfo>(`${this.apiUrl}api/v1/users/usernames/${username}`);
+  }
+
   setToken(token: string){
     localStorage.setItem(TOKEN_KEY, token)
   }
 
+  logout() {
+    localStorage.removeItem(TOKEN_KEY);
+    this.setIsAuthenticated(false);
+    this.router.navigate(['/login']);
+  }
 }

@@ -22,6 +22,9 @@ import { ComicDetailsComponent } from './comic-details/comic-details.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
+import { PublishingChapterComponent } from './publishing-chapter/publishing-chapter.component';
+import {AuthGuard} from "./auth.guard";
+import { ComicListComponent } from './comic-list/comic-list.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
     ComicDetailsComponent,
     ChapterComponent,
     ProfileComponent,
-    BookmarkComponent
+    BookmarkComponent,
+    PublishingChapterComponent,
+    ComicListComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,7 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [GenreTranslateService],
+  providers: [GenreTranslateService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

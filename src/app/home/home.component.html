@@ -23,8 +23,10 @@
           <h3 class="comic-main-title">{{ comic.name }}</h3>
           <span class="comic-main-genre" *ngFor="let genre of comic.genres">{{ translateGenre(genre) }}</span>
           <p class="comic-main-description">{{ comic.description }}</p>
-          <p class="comic-main-rating">Rating: {{ comic.rating }}</p>
-          <p class="comic-main-type">Type: {{ comic.type }}</p>
+          <div class="bottom"></div>
+          <p class="comic-main-rating-type">
+            Rating: {{ comic.rating }} | Type: {{ comic.type }}
+          </p>
         </div>
       </div>
     </a>

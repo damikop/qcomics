@@ -37,14 +37,16 @@ export class LoginComponent implements OnInit{
   // }
 
   submit(form: NgForm) {
+    this.authService.setRedirectUrl('/publishing');
     this.authService.login(this.payload).subscribe({
       next: value => {
         this.authService.setToken(value.token);
-        this.authService.setIsAuthenticated(true); // Устанавливаем флаг аутентификации в true
+        this.authService.setIsAuthenticated(true);
+        this.authService.setUsername(this.payload.username);
         this.router.navigate(['/home/']);
       },
       error: error => {
-        if (error.status === 403) {
+        if (error.status === 500) {
           this.errorMessage = 'Неверный логин или пароль';
           form.resetForm();
         }

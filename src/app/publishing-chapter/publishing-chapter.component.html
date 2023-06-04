@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Публикация главы</h1>
+
+  <form (submit)="publishChapter()">
+    <div class="form-group">
+      <label class="label" for="chapterName">Название главы</label><br>
+      <span>Глава </span>
+      <input required type="text" id="chapterName" name="chapterName" class="input" [(ngModel)]="chapterName">
+    </div>
+
+    <div class="upload-container">
+      <label class="label" for="files">Загрузить главы (максимум 25)</label>
+      <input type="file" id="files" multiple (change)="handleFileInput($event)" accept="image/*">
+      <div class="upload-preview">
+        <div *ngFor="let file of selectedFiles; let i = index" class="upload-item">
+          <img [src]="file.url" alt="Preview" *ngIf="file.url" >
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-button"
+            [disabled]="chapterName === '' || selectedFiles.length === 0 || selectedFiles.length > 25">
+      Опубликовать главы
+    </button>
+  </form>
+</div>
