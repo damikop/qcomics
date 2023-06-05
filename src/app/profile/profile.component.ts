@@ -34,6 +34,7 @@ export class ProfileComponent implements OnInit{
     this.author = {
       author: author
     };
+
     this.mainService.mapping(this.map, this.author).subscribe(comics => {
       this.comics = comics;
       console.log(comics);

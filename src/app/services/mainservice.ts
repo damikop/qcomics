@@ -67,13 +67,14 @@ export class MainService {
     return this.httpClient.get<imageChapter[]>(`${this.apiUrl}api/v1/images/all?chapterName=${chapterName}&comicName=${comicName}`);
   }
 
-  saveImage(imageChapter: imageChapter): Observable<imageChapter> {
-    return this.httpClient.post<imageChapter>(`${this.apiUrl}api/v1/images/save`, imageChapter);
-  }
-
   saveChapterByName(chapter: Chapter): Observable<Chapter> {
     return this.httpClient.post<Chapter>(`${this.apiUrl}api/v1/chapters/save-by-name`, chapter);
   }
+  saveImage(imageChapter:imageChapter): Observable<imageChapter> {
+    return this.httpClient.post<imageChapter>(`${this.apiUrl}api/v1/images/save`, imageChapter);
+  }
+
+
 
   mapping(map: Mapping, author: Author): Observable<Comic[]> {
     const queryParams = new URLSearchParams();

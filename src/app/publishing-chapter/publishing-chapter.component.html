@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Публикация главы</h1>
 
-  <form (submit)="publishChapter()">
+  <form  (submit)="publishChapter(); previewImages()">
     <div class="form-group">
       <label class="label" for="chapterName">Название главы</label><br>
       <span>Глава </span>
@@ -15,11 +15,15 @@
         <div *ngFor="let file of selectedFiles; let i = index" class="upload-item">
           <img [src]="file.url" alt="Preview" *ngIf="file.url" >
         </div>
+        <div *ngFor="let url of previewUrls" class="upload-item">
+          <img [src]="url" alt="Preview Image">
+        </div>
+
       </div>
     </div>
 
     <button type="submit" class="submit-button"
-            [disabled]="chapterName === '' || selectedFiles.length === 0 || selectedFiles.length > 25">
+            [disabled]="chapterName === '' || previewUrls.length === 0 || previewUrls.length > 25">
       Опубликовать главы
     </button>
   </form>

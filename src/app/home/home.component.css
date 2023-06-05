@@ -5,8 +5,22 @@
 .comics-list-banner {
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
+}
+.comic-banner-wrapper {
+  display: flex;
+  animation: scrollBanner 30s linear infinite;
+  width: calc(184px * {{comics.length}});
 }
 
+@keyframes scrollBanner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+transform: translateX(calc(-100% * {{comics.length}}));
+}
+}
 .comic-card-banner {
   margin: 10px;
   width: 184px;
@@ -26,7 +40,6 @@
 }
 
 .comic-info-banner {
-  /* Остальные стили для .comic-info-banner */
 }
 
 .comic-banner-genre {
@@ -36,17 +49,13 @@
   color: #848382;
   position: relative;
   padding-right: 8px;
-  /* Остальные стили для .genre */
 }
 
 
 .comic-banner-title {
   font-weight: 600;
   font-size: 16px;
-  /* Остальные стили для .title */
 }
-
-
 
 .comics-list-main {
   display: flex;

@@ -14,12 +14,19 @@
       </div>
     </div>
   </div>
-
-  <div *ngIf="chapters">
-    <h2>Chapters</h2>
+<hr class="hr1">
+  <div class="chapters" *ngIf="chapters">
+    <h2>Главы</h2>
+    <hr class="hr2">
     <ul>
-      <li *ngFor="let chapter of chapters">
-        <a [routerLink]="'chapter/' + chapter.name">{{ chapter.name }}</a>
+      <li  *ngFor="let chapter of chapters">
+        <div class="chapter">
+          <div class="chapter-title">{{ chapter.name }}</div>
+          <div class="chapter-date">Июнь 5, 2023</div>
+          <button id="mainButton" type="submit" class=" text-white font-bold py-2 px-4 rounded">
+            <a [routerLink]="'chapter/' + chapter.name" class="read-button">Читать</a>
+          </button>
+        </div>
       </li>
     </ul>
   </div>

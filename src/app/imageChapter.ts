@@ -1,5 +1,5 @@
 export interface imageChapter {
-  name: string;
+  chapterName: string;
   comicName: string;
   base64: string;
 }

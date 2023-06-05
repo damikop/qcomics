@@ -1,17 +1,19 @@
 <div class="home">
   <div class="comics-list-banner">
     <!-- List of comics with covers, names, and genres -->
-    <a [routerLink]="['/comic', comic.name]" *ngFor="let comic of comics" class="comic-card-banner">
-      <div class="comic-details-banner">
-        <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
-        <div class="comic-info-banner">
-          <p class="comic-banner-genre" *ngFor="let genre of comic.genres">{{ translateGenre(genre) }}</p>
-          <h3 class="comic-banner-title">
-            <a>{{ comic.name }}</a>
-          </h3>
+    <div class="comic-banner-wrapper" #comicBannerWrapper>
+      <a [routerLink]="['/comic', comic.name]" *ngFor="let comic of comics" class="comic-card-banner">
+        <div class="comic-details-banner">
+          <img [src]="getComicImageURL(comic.imageCoverBase64)" alt="Comic Cover" class="cover-image">
+          <div class="comic-info-banner">
+            <p class="comic-banner-genre" *ngFor="let genre of comic.genres">{{ translateGenre(genre) }}</p>
+            <h3 class="comic-banner-title">
+              <a>{{ comic.name }}</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 
   <div class="comics-list-main">

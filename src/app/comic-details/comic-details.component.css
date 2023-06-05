@@ -2,8 +2,40 @@
   margin-top: 100px;
 }
 .comic{
-  width: 1640px;
+  width: 1550px;
   margin: 0 auto;
+}
+.hr1{
+  margin: 20px 0;
+}
+.hr2{
+  width: 1550px;
+  margin: 20px auto;
+}
+.chapters{
+  width: 1550px;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+li{
+  width: 1500px;
+}
+h2{
+  font-weight: bold;
+}
+.chapter{
+  display: flex;
+  justify-content: space-between;
+}
+.buttonReading{
+  width: 118px;
+  height: 50px;
+}
+#mainButton{
+  background: linear-gradient(to right, #DE6262, #FFB88C);
+}
+.chapter-title, .chapter-date{
+  font-size: 16px;
 }
 .title{
   font-weight: 600;
