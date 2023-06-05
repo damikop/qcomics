@@ -83,7 +83,7 @@ export class MainService {
     queryParams.set('page', map.page.toString());
     queryParams.set('size', map.size.toString());
 
-    const url = `${this.apiUrl}/api/v1/comics/findAll/map?${queryParams.toString()}`;
+    const url = `${this.apiUrl}api/v1/comics/findAll/map?${queryParams.toString()}`;
 
     const requestBody = {
       author: author.author

@@ -43,6 +43,6 @@ export class ProfileComponent implements OnInit{
 
   addChapter(comic: Comic): void {
     // Перейти на страницу добавления главы для выбранного комикса
-    this.router.navigate(['/add-chapter', comic.name]);
+    this.router.navigate(['/publishingChapter', comic.name]);
   }
 }

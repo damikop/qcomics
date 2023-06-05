@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from "../services/mainservice";
-import { ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { Comic } from "../comic";
 import { imageChapter } from "../imageChapter";
 import { Chapter } from "../Chapter";
@@ -34,7 +34,7 @@ export class PublishingChapterComponent {
     base64: this.url
   }
 
-  constructor(private mainService: MainService, private activatedRoute: ActivatedRoute) {
+  constructor(private mainService: MainService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
       this.comicName = params['comicName'];
     });
@@ -63,8 +63,11 @@ export class PublishingChapterComponent {
 
     this.mainService.saveChapterByName(chapter).subscribe(savedChapter => {
       console.log('before save chapter')
+      // this.router.navigate(['/home']);
       this.saveChapterImages().subscribe(() => {
         console.log('Изображения главы успешно сохранены');
+        // this.router.navigate(['/home']);
+
       }, error => {
         console.error('Произошла ошибка при сохранении изображений главы:', error);
       });
